@@ -3,6 +3,7 @@ using LinguaSmart.Data;
 using LinguaSmart.DTOs;
 using LinguaSmart.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace LinguaSmart.Controllers
 {
@@ -15,7 +16,7 @@ namespace LinguaSmart.Controllers
             _context = context;
         }
 
-        public IActionResult Index(string? search)
+        public async Task<IActionResult> Index(string? search)
         {
             var words = _context.Words.AsQueryable();
 
@@ -26,12 +27,12 @@ namespace LinguaSmart.Controllers
                     w.BulgarianTranslation.Contains(search));
             }
 
-            var result = words.Select(w => new WordDto
+            var result = await words.Select(w => new WordDto
             {
                 Id = w.Id,
                 EnglishWord = w.EnglishWord,
                 BulgarianTranslation = w.BulgarianTranslation
-            }).ToList();
+            }).ToListAsync();
 
             ViewBag.Search = search;
 

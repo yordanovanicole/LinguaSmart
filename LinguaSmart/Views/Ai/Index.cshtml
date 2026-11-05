@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "ИИ езиков помощник";
+}
+
+<div class="container mt-5" style="max-width: 850px;">
+
+    <h2 class="mb-3">ИИ езиков помощник</h2>
+
+    <p class="text-muted mb-4">
+        Използвай изкуствен интелект, за да научиш
+        превода, значението и употребата на английски думи.
+    </p>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-4">
+
+            <form method="post"
+                  asp-controller="Ai"
+                  asp-action="Index">
+
+                @Html.AntiForgeryToken()
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">
+                        Въведи английска дума
+                    </label>
+
+                    <input type="text"
+                           name="word"
+                           value="@ViewBag.Word"
+                           class="form-control"
+                           placeholder="Например: beautiful"
+                           maxlength="100"
+                           required />
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Попитай ИИ
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+    @if (ViewBag.Answer != null)
+    {
+        <div class="card shadow-sm mt-4">
+            <div class="card-body p-4">
+
+                <h4 class="mb-3">Отговор от ИИ</h4>
+
+                <div style="white-space: pre-wrap; line-height: 1.8;">@ViewBag.Answer</div>
+
+            </div>
+        </div>
+    }
+
+    @if (ViewBag.Warning != null)
+    {
+        <div class="alert alert-warning mt-3">
+            @ViewBag.Warning
+        </div>
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger mt-3">
+            @ViewBag.Error
+        </div>
+    }
+
+    <a asp-controller="Words"
+       asp-action="Index"
+       class="btn btn-outline-secondary mt-4">
+        Назад към речника
+    </a>
+
+</div>

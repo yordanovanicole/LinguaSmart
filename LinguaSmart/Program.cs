@@ -1,10 +1,13 @@
 
 using LinguaSmart.Data;
+using LinguaSmart.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpClient<DictionaryApiService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(

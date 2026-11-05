@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Английски речник API";
+}
+
+<h2>Английски речник</h2>
+
+<p>
+    Потърсете значението на английска дума
+    чрез външна API услуга.
+</p>
+
+<form method="post" asp-controller="DictionaryApi" asp-action="Index">
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <label class="form-label">Английска дума</label>
+
+        <input type="text"
+               name="word"
+               class="form-control"
+               value="@ViewBag.Word"
+               placeholder="Например: beautiful"
+               required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Потърси значение
+    </button>
+</form>
+
+@if (ViewBag.Definition != null)
+{
+    <div class="card mt-4">
+        <div class="card-body">
+            <h3>@ViewBag.Word</h3>
+
+            <p>
+                <strong>Значение:</strong>
+                @ViewBag.Definition
+            </p>
+        </div>
+    </div>
+}
+
+<a asp-controller="Words"
+   asp-action="Index"
+   class="btn btn-secondary mt-4">
+    Назад към речника
+</a>

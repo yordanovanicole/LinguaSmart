@@ -1,0 +1,58 @@
+﻿@model LinguaSmart.Models.Word
+
+@{
+    ViewData["Title"] = "Начало";
+}
+
+<div class="text-center">
+    <h1>Добре дошли в LinguaSmart!</h1>
+    <p>Вашият интелигентен езиков помощник.</p>
+</div>
+
+<hr />
+
+<h2>Дума на деня</h2>
+
+@if (Model != null)
+{
+    <div class="card mt-3">
+        <div class="card-body">
+            <h3 class="card-title">@Model.EnglishWord</h3>
+
+            <p>
+                <strong>Превод:</strong>
+                @Model.BulgarianTranslation
+            </p>
+
+            <p>
+                <strong>Значение:</strong>
+                @Model.Definition
+            </p>
+
+            <p>
+                <strong>Синоними:</strong>
+                @Model.Synonyms
+            </p>
+
+            <p>
+                <strong>Пример:</strong>
+                @Model.ExampleSentence
+            </p>
+
+            <p>
+                <strong>Ниво на трудност:</strong>
+                @Model.DifficultyLevel
+            </p>
+        </div>
+    </div>
+}
+else
+{
+    <p>Все още няма добавени думи в речника.</p>
+}
+
+<a asp-controller="Words"
+   asp-action="Index"
+   class="btn btn-primary mt-3">
+    Към речника
+</a>

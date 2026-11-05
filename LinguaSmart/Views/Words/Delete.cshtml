@@ -1,0 +1,30 @@
+﻿@model LinguaSmart.Models.Word
+
+@{
+    ViewData["Title"] = "Изтриване на дума";
+}
+
+<h2>Изтриване на дума</h2>
+
+<p>Сигурни ли сте, че искате да изтриете тази дума?</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Английска дума</th>
+        <td>@Model.EnglishWord</td>
+    </tr>
+    <tr>
+        <th>Превод</th>
+        <td>@Model.BulgarianTranslation</td>
+    </tr>
+</table>
+
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+    <button type="submit" class="btn btn-danger">
+        Изтрий
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Отказ
+    </a>
+</form>

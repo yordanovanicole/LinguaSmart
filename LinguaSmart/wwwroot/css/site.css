@@ -1,0 +1,197 @@
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: floralwhite;
+    color: darkslategray;
+    font-size: 19px;
+}
+
+h1 {
+    font-size: 38px;
+}
+
+h2 {
+    font-size: 31px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+h1, h2, h3 {
+    color: darkslategray;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+.navbar {
+    background-color: darkslategray;
+    padding: 15px;
+}
+
+    .navbar .navbar-brand {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        color: white;
+        font-size: 19px;
+        margin-left: 12px;
+    }
+
+        .navbar .navbar-nav .nav-link:hover {
+            color: lightblue;
+        }
+
+.container {
+    max-width: 1050px;
+}
+
+main {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.table {
+    background-color: white;
+    font-size: 18px;
+}
+
+    .table > thead > tr > th {
+        background-color: lightsteelblue;
+        color: darkslategray;
+    }
+
+    .table td {
+        padding: 12px;
+    }
+
+.card {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.card-body {
+    padding: 20px;
+    font-size: 19px;
+}
+
+    .card-body h3 {
+        font-size: 28px;
+    }
+
+    .card-body p {
+        font-size: 19px;
+        line-height: 1.7;
+    }
+
+.card-header {
+    background-color: lightsteelblue;
+    font-size: 19px;
+}
+
+.btn {
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 8px 15px;
+}
+
+.btn-sm {
+    font-size: 16px;
+    padding: 6px 10px;
+}
+
+.btn-primary {
+    background-color: steelblue;
+    border-color: steelblue;
+}
+
+    .btn-primary:hover {
+        background-color: darkslategray;
+        border-color: darkslategray;
+    }
+
+.btn-info {
+    background-color: lightblue;
+    border-color: lightblue;
+    color: black;
+}
+
+.btn-warning {
+    background-color: wheat;
+    border-color: wheat;
+    color: black;
+}
+
+.btn-danger {
+    background-color: indianred;
+    border-color: indianred;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: slategray;
+    border-color: slategray;
+}
+
+.form-control, .form-select {
+    font-size: 18px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.form-label {
+    font-size: 19px;
+}
+
+details summary {
+    cursor: pointer;
+    background-color: lightsteelblue;
+    color: darkslategray;
+    font-size: 19px;
+    padding: 12px;
+}
+
+details[open] summary {
+    background-color: lightblue;
+}
+
+.footer {
+    background-color: darkslategray;
+    color: white;
+    padding: 20px;
+    font-size: 17px;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+    body > .container {
+        flex: 1;
+    }
+
+.footer {
+    position: static;
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px 0;
+    line-height: normal;
+    white-space: normal;
+}

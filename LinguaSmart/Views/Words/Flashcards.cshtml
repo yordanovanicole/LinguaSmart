@@ -1,0 +1,54 @@
+﻿@model IEnumerable<LinguaSmart.Models.Word>
+
+@{
+    ViewData["Title"] = "Флаш карти";
+}
+
+<h2>Флаш карти за учене</h2>
+
+
+<p style="font-size: 18px;">
+    Натиснете върху английската дума, за да видите превода.
+</p>
+
+
+@if (!Model.Any())
+{
+    <p>Все още няма добавени думи.</p>
+}
+else
+{
+    foreach (var level in new[] { "Beginner", "Intermediate", "Advanced" })
+    {
+        var words = Model.Where(w => w.DifficultyLevel == level).ToList();
+
+        if (words.Count > 0)
+        {
+            <h3 class="mt-4">@level</h3>
+
+            <div class="row">
+                @foreach (var word in words)
+                {
+                    <div class="col-md-4 mb-3">
+                        <details class="card">
+                            <summary class="card-header" style="cursor: pointer;">
+                                @word.EnglishWord
+                            </summary>
+
+                            <div class="card-body">
+                                <p><strong>Превод:</strong> @word.BulgarianTranslation</p>
+                                <p><strong>Пример:</strong> @word.ExampleSentence</p>
+                            </div>
+                        </details>
+                    </div>
+                }
+            </div>
+        }
+    }
+}
+
+<a asp-controller="Words"
+   asp-action="Index"
+   class="btn btn-secondary mt-3">
+    Назад към речника
+</a>

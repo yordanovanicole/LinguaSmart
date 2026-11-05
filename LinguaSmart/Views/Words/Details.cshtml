@@ -1,0 +1,43 @@
+﻿@model LinguaSmart.Models.Word
+
+@{
+    ViewData["Title"] = "Подробности";
+}
+
+<h2>Подробности за думата</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Английска дума</th>
+        <td>@Model.EnglishWord</td>
+    </tr>
+    <tr>
+        <th>Превод</th>
+        <td>@Model.BulgarianTranslation</td>
+    </tr>
+    <tr>
+        <th>Значение</th>
+        <td>@Model.Definition</td>
+    </tr>
+    <tr>
+        <th>Примерно изречение</th>
+        <td>@Model.ExampleSentence</td>
+    </tr>
+
+    <tr>
+        <th>Синоними</th>
+        <td>@Model.Synonyms</td>
+    </tr>
+
+    <tr>
+        <th>Категория</th>
+        <td>@Model.Category</td>
+    </tr>
+    <tr>
+        <th>Ниво на трудност</th>
+        <td>@Model.DifficultyLevel</td>
+    </tr>
+    
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">Назад към речника</a>

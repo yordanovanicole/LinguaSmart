@@ -1,0 +1,56 @@
+﻿@model LinguaSmart.Models.Word
+
+@{
+    ViewData["Title"] = "Добавяне на дума";
+}
+
+<h2>Добавяне на нова дума</h2>
+
+<form asp-action="Create" method="post">
+
+    <div class="mb-3">
+        <label asp-for="EnglishWord" class="form-label"></label>
+        <input asp-for="EnglishWord" class="form-control" />
+        <span asp-validation-for="EnglishWord" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="BulgarianTranslation" class="form-label"></label>
+        <input asp-for="BulgarianTranslation" class="form-control" />
+        <span asp-validation-for="BulgarianTranslation" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Definition" class="form-label"></label>
+        <textarea asp-for="Definition" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ExampleSentence" class="form-label"></label>
+        <textarea asp-for="ExampleSentence" class="form-control"></textarea>
+    </div>
+
+
+    <div class="mb-3">
+        <label asp-for="Synonyms" class="form-label"></label>
+        <input asp-for="Synonyms" class="form-control"
+               placeholder="Например: Pretty, Lovely, Attractive" />
+    </div>
+
+
+    <div class="mb-3">
+        <label asp-for="Category" class="form-label"></label>
+        <select asp-for="Category" class="form-select">
+            <option value="">Изберете категория</option>
+            <option value="Everyday Life">Everyday Life</option>
+            <option value="Travel">Travel</option>
+            <option value="Business">Business</option>
+            <option value="Education">Education</option>
+        </select>
+        <span asp-validation-for="Category" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Запази думата</button>
+
+    <a asp-action="Index" class="btn btn-secondary">Назад</a>
+
+</form>
